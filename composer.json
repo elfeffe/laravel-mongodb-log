@@ -1,0 +1,18 @@
+{
+    "name": "amirhb/laravel-mongodb-log",
+    "description": "Mongodb Logging for Laravel",
+    "keywords": ["laravel","log","mongodb","mongo","database","logging","monolog"],
+    "homepage": "https://github.com/amirhb/laravel-mongodb-log",
+    "type": "library",
+    "require": {
+        "jenssegers/mongodb": "3.2.1"
+    },
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Amir Hossein Babaeian",
+            "email": "amirh.babaeian@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
