@@ -14,5 +14,8 @@
             "email": "amirh.babaeian@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {"Amirhb\\LaravelMongodbLog\\": "src/"}
+    }
 }

@@ -6,7 +6,7 @@
  * Time: 10:24 AM
  */
 
-namespace App\MongodbLog;
+namespace Amirhb\LaravelMongodbLog;
 
 class RequestProcessor
 {

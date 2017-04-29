@@ -1,6 +1,6 @@
 <?php
 
-namespace App\MongodbLog;
+namespace Amirhb\LaravelMongodbLog;
 
 use Carbon\Carbon;
 use Monolog\Handler\AbstractProcessingHandler;
