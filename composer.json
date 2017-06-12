@@ -5,7 +5,8 @@
     "homepage": "https://github.com/amirhb/laravel-mongodb-log",
     "type": "library",
     "require": {
-        "jenssegers/mongodb": "3.2.1"
+        "jenssegers/mongodb": "3.2.1",
+        "illuminate/support": "^5.1"
     },
     "license": "BSD-3-Clause",
     "authors": [
