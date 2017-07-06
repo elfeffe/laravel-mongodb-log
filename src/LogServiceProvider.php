@@ -15,7 +15,7 @@ class LogServiceProvider extends ServiceProvider
     {
         include __DIR__ . '/routes.php';
 
-        $this->publishes([
+        $this->publishers([
             __DIR__ . '/config.php' => config_path('mongodb-log.php'),
         ]);
     }
