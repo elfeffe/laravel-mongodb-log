@@ -7,5 +7,5 @@
  */
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::post('/logs', 'Amirhb\LaravelMongodbLog\LogController@index');
+    Route::get('/admin/logs', 'Amirhb\LaravelMongodbLog\LogController@index')->name('logs');
 });
