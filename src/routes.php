@@ -6,4 +6,6 @@
  * Time: 2:43 PM
  */
 
-Route::get('/admin/log-manager', 'Amirhb\LaravelMongodbLog\LogController@index')->middleware('log-user')->name('log-manager');
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/admin/log-manager', 'Amirhb\LaravelMongodbLog\LogController@index')->middleware('log-user')->name('log-manager');
+});
