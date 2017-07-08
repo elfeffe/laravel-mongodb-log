@@ -13,9 +13,9 @@ class LogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadRoutesFrom( __DIR__ . '/routes.php');
 
-        $this->publishers([
+        $this->publishes([
             __DIR__ . '/config.php' => config_path('mongodb-log.php'),
         ]);
     }
@@ -29,6 +29,6 @@ class LogServiceProvider extends ServiceProvider
     {
         $this->app->make('Amirhb\LaravelMongodbLog\LogController');
 
-        $this->loadViewsFrom(__DIR__.'/views');
+        $this->loadViewsFrom( __DIR__ . '/views', 'LaravelMongodbLog');
     }
 }
