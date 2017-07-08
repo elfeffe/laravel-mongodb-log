@@ -9,6 +9,7 @@ namespace Amirhb\LaravelMongodbLog;
 
 use Closure;
 use Auth;
+use App\Log;
 
 class LogMiddleware
 {
@@ -21,7 +22,13 @@ class LogMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::user()->hasRole('test')) {
+        $loggerId = 'email';
+
+        if (!empty(Log::getLoggerIdAttribute())) {
+            $loggerId = Log::getLoggerIdAttribute();
+        }
+
+        if (Auth::user()->$loggerId !== config('mongodb-log.loggerId')) {
             abort(403, 'Unauthorized action.');
         }
 
