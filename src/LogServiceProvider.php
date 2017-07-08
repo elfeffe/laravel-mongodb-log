@@ -29,6 +29,8 @@ class LogServiceProvider extends ServiceProvider
     {
         $this->app->make('Amirhb\LaravelMongodbLog\LogController');
 
+        $this->app['router']->middleware('log-user', 'Amirhb\LaravelMongodbLog\LogMiddleware');
+
         $this->loadViewsFrom( __DIR__ . '/views', 'LaravelMongodbLog');
     }
 }
