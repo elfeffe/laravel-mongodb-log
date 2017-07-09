@@ -7,5 +7,5 @@
  */
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/admin/log-manager', 'Amirhb\LaravelMongodbLog\LogController@index')->middleware('log-user')->name('log-manager');
+    Route::get('/log-manager', 'Amirhb\LaravelMongodbLog\LogController@index')->middleware('log-user')->name('log-manager');
 });
