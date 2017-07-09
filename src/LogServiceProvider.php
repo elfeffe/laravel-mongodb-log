@@ -18,6 +18,10 @@ class LogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config.php' => config_path('mongodb-log.php'),
         ]);
+
+        $this->publishes([
+            __DIR__.'/views/js/jsgrid' => public_path('amirhb/js/jsgrid'),
+        ]);
     }
 
     /**

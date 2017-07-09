@@ -8,4 +8,5 @@
 
 Route::group(['middleware' => 'web'], function () {
     Route::get('/log-manager', 'Amirhb\LaravelMongodbLog\LogController@index')->middleware('log-user')->name('log-manager');
+    Route::get('/filter-logs', 'Amirhb\LaravelMongodbLog\LogController@filter')->middleware('log-user')->name('filter-logs');
 });
