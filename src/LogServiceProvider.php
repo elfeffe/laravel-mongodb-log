@@ -22,6 +22,10 @@ class LogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/views/js/jsgrid' => public_path('amirhb/js/jsgrid'),
         ]);
+
+        $this->publishes([
+            __DIR__.'/views/css/jsgrid' => public_path('amirhb/css/jsgrid'),
+        ]);
     }
 
     /**
