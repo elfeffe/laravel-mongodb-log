@@ -13,10 +13,26 @@ class LogController extends Controller
         return view('LaravelMongodbLog::index');
     }
 
-    public function filter()
+    public function filter(Request $request)
     {
         $response = [];
-        $logs = DB::connection('mongodb')->collection('logs')->get();
+        $logs = DB::connection('mongodb')->collection('logs');
+
+        $parameters = $request->all();
+
+        foreach ($parameters as $parameter => $input) {
+            if (empty($input)) {
+                continue;
+            }
+
+            if ($parameter === 'date' || $parameter === 'timezone') {
+                $logs = $logs->where( 'time.' . $parameter, 'like', $input);
+            } else {
+                $logs = $logs->where( $parameter, 'like', $input);
+            }
+        }
+
+        $logs = $logs->get();
 
         foreach ($logs as $log) {
             $result = [];
