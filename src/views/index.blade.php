@@ -15,7 +15,7 @@
 
             $("#jsGrid").jsGrid({
                 width: "100%",
-                height: "400px",
+                height: "auto",
 
                 filtering: true,
                 sorting: true,
@@ -23,12 +23,13 @@
                 autoload: true,
 
                 controller: {
-                    loadData: function() {
+                    loadData: function(filter) {
                         var d = $.Deferred();
 
                         $.ajax({
                             url: "{{ route('filter-logs') }}",
-                            dataType: "json"
+                            dataType: "json",
+                            data: filter
                         }).done(function(response) {
                             d.resolve(response);
                         });
