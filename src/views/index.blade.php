@@ -1,9 +1,10 @@
 <html>
 <head>
     <title>
-        test
+        Mongodb Log Manager
     </title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="amirhb/css/jsgrid/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="amirhb/css/jsgrid/jsgrid-theme.min.css" />
 
@@ -43,7 +44,7 @@
                     { name: "message", type: "text" },
                     { name: "level", type: "text" },
                     { name: "context", type: "text" },
-                    { name: "extra", type: "text" },
+                    { name: "extra", type: "text", width: "30px" },
                     { name: "date", type: "text" },
                     { name: "timezone", type: "text" },
 

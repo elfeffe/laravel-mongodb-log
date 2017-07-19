@@ -28,7 +28,7 @@ class LogMiddleware
             $loggerId = Log::getLoggerIdAttribute();
         }
 
-        if (Auth::user()->$loggerId !== config('mongodb-log.loggerId')) {
+        if ( empty(Auth::user()) || Auth::user()->$loggerId !== config('mongodb-log.loggerId')) {
             abort(403, 'Unauthorized action.');
         }
 
