@@ -44,7 +44,7 @@
                     { name: "message", type: "text" },
                     { name: "level", type: "text" },
                     { name: "context", type: "text" },
-                    { name: "extra", type: "text", width: "30px" },
+                    { name: "extra", type: "text" },
                     { name: "date", type: "text" },
                     { name: "timezone", type: "text" },
 
