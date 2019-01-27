@@ -16,7 +16,7 @@ class LogHandler
     {
         $logger = new Logger('mongodb');
         $logger->pushHandler(new EloquentHandler());
-        $logger->pushProcessor(new RequestProcessor());
+        // $logger->pushProcessor(new RequestProcessor());
 
         return $logger;
     }
