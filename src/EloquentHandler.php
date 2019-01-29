@@ -4,7 +4,7 @@ namespace Amirhb\LaravelMongodbLog;
 
 use Carbon\Carbon;
 use Monolog\Handler\AbstractProcessingHandler;
-use Model\Log;
+use Amirhb\LaravelMongodbLog\Model\Log;
 use Auth;
 
 class EloquentHandler extends AbstractProcessingHandler {
