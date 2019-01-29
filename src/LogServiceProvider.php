@@ -25,6 +25,6 @@ class LogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/config.php', 'mongodb-log');
+        $this->mergeConfigFrom(__DIR__.'/config.php', 'mongodb-log.php');
     }
 }
