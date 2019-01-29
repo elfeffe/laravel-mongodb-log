@@ -18,5 +18,12 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {"Amirhb\\LaravelMongodbLog\\": "src/"}
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Amirhb\\LaravelMongodbLog\\LogServiceProvider"
+            ]
+        }
     }
 }

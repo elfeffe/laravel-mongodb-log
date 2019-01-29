@@ -13,18 +13,8 @@ class LogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom( __DIR__ . '/routes.php');
-
         $this->publishes([
             __DIR__ . '/config.php' => config_path('mongodb-log.php'),
-        ]);
-
-        $this->publishes([
-            __DIR__.'/views/js/jsgrid' => public_path('amirhb/js/jsgrid'),
-        ]);
-
-        $this->publishes([
-            __DIR__.'/views/css/jsgrid' => public_path('amirhb/css/jsgrid'),
         ]);
     }
 
@@ -35,10 +25,5 @@ class LogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make('Amirhb\LaravelMongodbLog\LogController');
-
-        $this->app['router']->aliasMiddleware('log-user', 'Amirhb\LaravelMongodbLog\LogMiddleware');
-
-        $this->loadViewsFrom( __DIR__ . '/views', 'LaravelMongodbLog');
     }
 }
