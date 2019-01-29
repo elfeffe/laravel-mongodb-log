@@ -4,6 +4,7 @@ namespace Amirhb\LaravelMongodbLog;
 
 use Carbon\Carbon;
 use Monolog\Handler\AbstractProcessingHandler;
+use Model\Log;
 use Auth;
 
 class EloquentHandler extends AbstractProcessingHandler {
@@ -25,6 +26,6 @@ class EloquentHandler extends AbstractProcessingHandler {
             'time'   => Carbon::now()
         ];
 
-        \App\Log::create($data);
+        Log::create($data);
     }
 }
