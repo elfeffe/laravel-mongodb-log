@@ -13,7 +13,7 @@ class LogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes(
+        $this->mergeConfigFrom(
             __DIR__ . '/config.php' ,'mongodb-log.php'
         );
     }
