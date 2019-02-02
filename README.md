@@ -1,7 +1,7 @@
 # laravel-mongodb-log
-Mongodb Log-Channel For Laravel Framework
+Mongodb Logging-Channel For Laravel Framework
 
-This package is developed as a mongodb log-channel for Laravel 5.6 and above.
+This package is developed as a mongodb logging-channel for Laravel 5.6 and above.
 
 ### Installation
 
