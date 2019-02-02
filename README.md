@@ -48,12 +48,17 @@ Then updating the config file with your desired settings:
 ```
 
 <?php
-            return [
-                'connection' => 'mongodb',
-                'collection' => 'logs',
-            ];
+return [
+    'connection' => 'mongodb',
+    'collection' => 'logs',
+];
 ```
 
 ### Usage
+As mentioned above, the package is a logging channel so you can do logging as before like in the [Laravel documentation](https://laravel.com/docs/logging) described.
 
+Logs are saved as ```Jenssegers\Mongodb\Eloquent\Model``` instances. You can query them easily. For more information check the [Laravel MongoDB Documentation](https://github.com/jenssegers/laravel-mongodb).
+
+### Unit Testing
+to be added ...
  
