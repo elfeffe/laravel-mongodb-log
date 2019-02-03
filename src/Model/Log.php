@@ -38,8 +38,8 @@ class Log extends Model
     
     public function __construct(array $attributes = [])
     {
-        $this->connection = config('mongodb-log.connection');
-        $this->collection = config('mongodb-log.collection');
+        $this->connection = env('MONGODB_CONNECTION' ,'mongodb-log.connection');
+        $this->collection = env('MONGODB_LOG_CONNECTION' ,'mongodb-log.collection');
         parent::__construct($attributes);
     }
 }
