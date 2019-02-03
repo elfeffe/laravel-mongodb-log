@@ -49,8 +49,8 @@ Then updating the config file with your desired settings:
 
 <?php
 return [
-    'connection' => 'mongodb',
-    'collection' => 'logs',
+    'connection' => env('MONGODB_CONNECTION' ,'mongodb'),
+    'collection' => env('MONGODB_LOG_COLLECTION' ,'logs'),
 ];
 ```
 
