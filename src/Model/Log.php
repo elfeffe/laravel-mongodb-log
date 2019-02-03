@@ -39,7 +39,7 @@ class Log extends Model
     public function __construct(array $attributes = [])
     {
         $this->connection = env('MONGODB_CONNECTION' ,'mongodb-log.connection');
-        $this->collection = env('MONGODB_LOG_CONNECTION' ,'mongodb-log.collection');
+        $this->collection = env('MONGODB_LOG_COLLECTION' ,'mongodb-log.collection');
         parent::__construct($attributes);
     }
 }
