@@ -1,102 +1,64 @@
 # laravel-mongodb-log
-Mongodb-log package to repalce native file-based laravel logging system.
+Mongodb Logging-Channel For Laravel Framework
 
-This package is developed to replace native laravel file-based logging system to use mongodb.
-Installation
-Composer
+This package is developed as a mongodb logging-channel for Laravel 5.6 and above.
+
+### Installation
 
 You could use Composer to install the package and all needed dependencies.
 
-{
-  "require": {
-    "amirhb/laravel-mongodb-log": "0.0.1-alpha"
-  },
-...
+```
+composer require amirhb/laravel-mongodb-log
+```
 
-Configuration
+### Configuration
 Updating Database Configuration file
 
-You can edit config/database.php file to set your mongodb connection.
+You should update your config/database.php file to add a mongodb connection.
 
+```
 'mongodb' => [
             'driver'   => 'mongodb',
             'host'     => env('MONGODB_HOST', 'localhost'),
             'port'     => env('MONGODB_PORT', 27017),
             'database' => env('MONGODB_DATABASE', 'logs'),
-        ]
+            ],
+``` 
 
-Creating The Log Model
+And also update your config/logging.php to add your custom log-channel.
 
-You should create a model to save logs.
+```
+'channels' => [
+    'custom' => [
+        'driver' => 'custom',
+        'via' => Amirhb\LaravelMongodbLog\LogHandler::class,
+    ],
+],
+```
 
-namespace App;
+There is a config file to publish which you can use to set database connection and a collection name for your mongodb logs.
+First publish the config file:
 
-use Jenssegers\Mongodb\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+```
+php artisan vendor:publish --provider="Amirhb\CAReflector\ServiceProvider" --tag="config"
+```
 
-/**
- * Class Log saves logs using mongdodb
- * @package App
- */
-class Log extends Model {
-    use SoftDeletes;
+Then updating the config file with your desired settings:
 
-    /**
-     * mongodb connection that Log uses.
-     *
-     * @var string
-     */
-    protected $connection = 'mongodb';
+```
 
-    /**
-     * collection name Log uses.
-     *
-     * @var string
-     */
-    protected $collection = 'logs';
+<?php
+return [
+    'connection' => 'mongodb',
+    'collection' => 'logs',
+];
+```
 
-    /**
-     * Prevents saving typical eloquent timestamps.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
+### Usage
+As mentioned above, the package is a logging channel so you can do logging as before like in the [Laravel documentation](https://laravel.com/docs/logging) described.
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'user',
-        'env',
-        'message',
-        'level',
-        'context',
-        'extra',
-        'time'
-    ];
+Logs are saved as ```Jenssegers\Mongodb\Eloquent\Model``` instances. You can query them easily. For more information check the [Laravel MongoDB Documentation](https://github.com/jenssegers/laravel-mongodb).
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'context' => 'array',
-        'extra'   => 'array'
-    ];
-}
-
-Updating Project Bootsrapping
-
-You should edit bootstrap/app.php to push new Handler and Processor to replace native logging system with mongodb logging.
-
-...
-$app->configureMonologUsing(function ($monolog) {
-    $monolog->pushHandler(new Amirhb\LaravelMongodbLog\EloquentHandler());
-    $monolog->pushProcessor(new Amirhb\LaravelMongodbLog\RequestProcessor());
-});
-
-return $app;
-
+### Unit Testing
+to be added ...
+ 
