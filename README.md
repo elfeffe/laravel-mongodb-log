@@ -40,7 +40,7 @@ There is a config file to publish which you can use to set database connection a
 First publish the config file:
 
 ```
-php artisan vendor:publish --provider="Amirhb\CAReflector\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Amirhb\LaravelMongodbLog\LogServiceProvider" --tag="config"
 ```
 
 Then updating the config file with your desired settings:
